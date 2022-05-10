@@ -5,9 +5,9 @@
     <p align="center">轻松生成自定义日历，并合成至壁纸。</p>
 </p>
 
-<figure>
-    <img src="images/asm.png" width="200"/><img src="images/rust.png" width="200"/><img src="images/lisp.png" width="200"/>
-</figure>
+<div align="center">
+    <img src="images/asm.png" style="zoom:15%"/><img src="images/rust.png" style="zoom:15%"/><img src="images/lisp.png" style="zoom:15%"/>
+</div>
 
 # 示例
 [ASM](images/asm.png) / [Rust](images/rust.png) / [Lisp](images/lisp.png)
