@@ -6,7 +6,7 @@
 </p>
 
 <div align="center">
-    <img src="images/asm.png" style="width: 25%"/><img src="images/rust.png" style="width: 25%"/><img src="images/lisp.png" style="width: 25%"/>
+    <img src="images/asm.png" style="width: 30%"/><img src="images/rust.png" style="width: 30%"/><img src="images/lisp.png" style="width: 30%"/>
 </div>
 
 # 示例
