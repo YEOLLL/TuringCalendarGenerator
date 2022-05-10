@@ -6,9 +6,9 @@
 </p>
 
 <center>
-    <img src="images/asm.png" width="300"/>
-    <img src="images/rust.png" width="300"/>
-    <img src="images/lisp.png" width="300"/>
+    <img src="images/asm.png" width="150"/>
+    <img src="images/rust.png" width="150"/>
+    <img src="images/lisp.png" width="150"/>
 </center>
 
 # 示例
