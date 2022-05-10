@@ -1,5 +1,7 @@
 # TuringCalendarGenerator
-生成自定义内容的 [编程日历](https://www.ituring.com.cn/book/details/2625) （图灵教育），图像由纯代码生成，无需准备图片资源。
+生成自定义内容的 [编程日历](https://www.ituring.com.cn/book/details/2625) （图灵教育），图像由纯代码生成，无需准备图片资源。  
+
+![](https://img.shields.io/badge/license-MIT-green)
 <p align="center"> 
     <h3 align="center">编程日历生成器</h3>
     <p align="center">轻松生成自定义日历，并合成至壁纸。</p>
