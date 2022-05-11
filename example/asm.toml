@@ -23,7 +23,7 @@ pop ax, \\ and ax, 0fh \\ add ax, '0'
 mov [bx], al \\ inc bx \\ ret
 """
 language = "nasm"
-output = "asm.png"
+output = "output/asm.png"
 
 # 标题
 [title]
@@ -89,4 +89,4 @@ weekend_color = [218, 40, 34]
 input = "images/wallpaper.png"
 code_zoom = 0.5
 code_pos = [350, 200]
-output = "wallpaper_asm.png"
+output = "output/wallpaper_asm.png"

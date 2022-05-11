@@ -13,7 +13,7 @@ code = """(multiple-value-bind
         date))
 """
 language = "lisp"
-output = "lisp.png"
+output = "output/lisp.png"
 
 # 标题
 [title]
@@ -79,4 +79,4 @@ weekend_color = [218, 40, 34]
 input = "images/wallpaper.png"
 code_zoom = 0.5
 code_pos = [350, 200]
-output = "wallpaper_lisp.png"
+output = "output/wallpaper_lisp.png"

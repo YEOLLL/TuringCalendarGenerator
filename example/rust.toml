@@ -13,7 +13,7 @@ fn main() {
     println!("{}", utc.format("%Y-%m-%d").to_string());
 }"""
 language = "rust"
-output = "rust.png"
+output = "output/rust.png"
 
 # 标题
 [title]
@@ -79,4 +79,4 @@ weekend_color = [218, 40, 34]
 input = "images/wallpaper.png"
 code_zoom = 0.5
 code_pos = [350, 200]
-output = "wallpaper_rust.png"
+output = "output/wallpaper_rust.png"
