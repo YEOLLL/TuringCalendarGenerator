@@ -39,18 +39,23 @@ im = Image.new(
 修改配置文件：[config.toml](config.toml)
 ```toml
 [calendar]
-# 日期，"today" 意味着使用 datetime.today()，即当日
-today = "today"
-# 标题
-title = ""
-# 介绍语
-description = """"""
-# 代码块
-code = """"""
-# 代码语言
+today = "today"  # today 意味着使用 datetime.today()，也就是当日
+# today = "2022-05-12"  # 像这样的格式去指定日期也是可以的
+title = "这里是标题"
+description = """在这里，你可以写多行的介绍语
+但要注意手动换行排版
+"""
+code = """print('这里是代码块')
+print('同样的，注意换行和缩进，可能影响排版')
+"""
 language = "python"
-# 输出文件名
-output = "calendar.png"
+output = "output/calendar.png"
+
+[wallpaper]
+input = "images/wallpaper.png"
+code_zoom = 0.5
+code_pos = [50, 100]
+output = "output/wallpaper.png"
 ```
 也可修改字体、颜色、位置等，详细见 [config.toml](config.toml) 注释
 
@@ -58,9 +63,47 @@ output = "calendar.png"
 
 ## 运行
 ```commandline
-python main.py
-```
+$ python main.py --help
+Usage: main.py [OPTIONS] COMMAND [ARGS]...
 
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  calendar
+  wallpaper
+```
+只有两个命令，`calendar` 和 `wallpaper`，两者都可以使用 `-c` 或者 `--config` 指定配置文件路径，不指定默认为 `config.toml`
+
+### 生成日历
+使用 `calendar` 命令可以生成日历图片
+```commandline
+$ python main.py calendar -c config.toml 
+```
+默认底色为纯白，通过 `--transparent` 参数可以设置为透明背景
+```commandline
+$ python main.py calendar -c config.toml --transparent
+```
+### 合并壁纸
+使用 `wallpaper` 可以将透明背景的日历图片合并至指定壁纸
+```commandline
+$ python main.py wallpaper -c config.toml
+```
+### 运行示例
+生成日历：
+```commandline
+$ python main.py calendar -c example/rust.toml
+
+日历已保存至 output/rust.png
+```
+生成并合并至壁纸  
+
+*注意：* 这里不需要先执行上一步，会自动生成一个背景透明背景的图片并输出合并后的文件
+```commandline
+$ python main.py wallpaper -c example/rust.toml
+
+壁纸已保存至 output/wallpaper_rust.png
+```
 # 相关项目
 
 [zhihaozhang/TuringCalendar](https://github.com/zhihaozhang/TuringCalendar)
