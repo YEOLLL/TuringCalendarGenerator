@@ -13,10 +13,12 @@ def cli():
 
 @cli.command()
 @click.option('-c', '--config', default='config.toml', help='配置文件路径')
-def calendar(config):
+@click.option('--transparent', is_flag=True)
+def calendar(config, transparent):
     config = load_config(config_path=config)
-    calendar_image = generate(config, transparent=False)
+    calendar_image = generate(config, transparent)
     calendar_image.save(config['calendar']['output'], 'png')
+    click.echo(f"日历已保存至 {config['calendar']['output']}")
 
 
 @cli.command()
@@ -29,6 +31,7 @@ def wallpaper(config):
                               config['wallpaper']['code_zoom'],
                               config['wallpaper']['code_pos'])
     wallpaper_image.save(config['wallpaper']['output'], 'png')
+    click.echo(f"壁纸已保存至 {config['wallpaper']['output']}")
 
 
 if __name__ == '__main__':
