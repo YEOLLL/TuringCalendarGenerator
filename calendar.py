@@ -25,27 +25,27 @@ def draw_calendar(draw, pos_list, config,
     # 绘制边框
     draw_grid_line_h(
         draw, (pos_list[0][0], pos_list[1][0]), pos_list[0][1],
-        config['calendar']['border'], config['calendar']['color'], config['calendar']['gap'])
+        config['table']['border'], config['table']['color'], config['table']['gap'])
     draw_grid_line_h(
         draw, (pos_list[0][0], pos_list[1][0]), pos_list[1][1],
-        config['calendar']['border'], config['calendar']['color'], config['calendar']['gap'])
+        config['table']['border'], config['table']['color'], config['table']['gap'])
     draw_grid_line_v(
         draw, (pos_list[0][1], pos_list[1][1]), pos_list[0][0],
-        config['calendar']['border'], config['calendar']['color'], config['calendar']['gap'])
+        config['table']['border'], config['table']['color'], config['table']['gap'])
     draw_grid_line_v(
         draw, (pos_list[0][1], pos_list[1][1]), pos_list[1][0],
-        config['calendar']['border'], config['calendar']['color'], config['calendar']['gap'])
+        config['table']['border'], config['table']['color'], config['table']['gap'])
     # 补右下角像素点
     draw.rectangle(
         xy=(pos_list[1][0], pos_list[1][1],
-            pos_list[1][0] + config['calendar']['border'] - 1, pos_list[1][1] + config['calendar']['border'] - 1),
-        fill=config['calendar']['color'])
+            pos_list[1][0] + config['table']['border'] - 1, pos_list[1][1] + config['table']['border'] - 1),
+        fill=config['table']['color'])
 
     # 假日显示特殊颜色
     if _today_text in ['Sat', 'Sun']:
-        _today_color = _date_color = _date_cn_color = config['calendar']['weekend_color']
+        _today_color = _date_color = _date_cn_color = config['table']['weekend_color']
     else:
-        _today_color = _date_color = _date_cn_color = config['calendar']['weekday_color']
+        _today_color = _date_color = _date_cn_color = config['table']['weekday_color']
 
     # 计算坐标信息
     [(x_begin, y_begin), (x_end, y_end)] = pos_list
@@ -58,19 +58,19 @@ def draw_calendar(draw, pos_list, config,
     # 绘制信息
     draw.text(
         xy=(today_pos_x, today_pos_y), text=_today_text,
-        fill=_today_color, font=config['calendar']['today']['font'], anchor='mm')
+        fill=_today_color, font=config['table']['today']['font'], anchor='mm')
     draw.text(
         xy=(date_pos_x, date_pos_y), text=_date_text,
-        fill=_date_color, font=config['calendar']['date']['font'], anchor='mm')
+        fill=_date_color, font=config['table']['date']['font'], anchor='mm')
     draw.text(
         xy=(date_cn_pos_x, date_cn_pos_y), text=_date_cn_text,
-        fill=_date_cn_color, font=config['calendar']['date_cn']['font'], anchor='mm')
+        fill=_date_cn_color, font=config['table']['date_cn']['font'], anchor='mm')
 
 
 # 绘制周历
 def draw_calendar_table(draw, today, config):
     # 计算坐标
-    ([x_begin, y_begin], [x_end, y_end]) = config['calendar']['pos']
+    ([x_begin, y_begin], [x_end, y_end]) = config['table']['pos']
     width = (x_end - x_begin) // 7
 
     # 绘制每一格日历
@@ -100,10 +100,10 @@ def generate(config, transparent=False):
         calendar_image = Image.new('RGBA', calendar_size, (255, 255, 255, 255))
     draw = ImageDraw.Draw(calendar_image)
 
-    if config['content']['today'] == 'today':
+    if config['calendar']['today'] == 'today':
         today = datetime.today()
     else:
-        today = datetime.fromisoformat(config['content']['today'])
+        today = datetime.fromisoformat(config['calendar']['today'])
 
     # 右上角日期
     date_text = today.strftime("%Y-%m-%d")
@@ -126,7 +126,7 @@ def generate(config, transparent=False):
     # 绘制
     # 标题
     draw.text(xy=config['title']['pos'],
-              text=config['content']['title'],
+              text=config['calendar']['title'],
               fill=config['title']['color'],
               font=config['title']['font'])
     # 日期
@@ -145,14 +145,14 @@ def generate(config, transparent=False):
               fill=date_cn_color,
               font=config['date_cn']['font'])
 
-    code_image = highlight_image(config['content']['code'], config['code']['font_size'], config['content']['language'])
+    code_image = highlight_image(config['calendar']['code'], config['code']['font_size'], config['calendar']['language'])
     temp_image = Image.new('RGBA', calendar_size, (255, 255, 255, 0))
     temp_image.paste(code_image, config['code']['pos'])
     calendar_image.alpha_composite(temp_image)
 
     # 介绍语
     draw.multiline_text(xy=config['description']['pos'],
-                        text=config['content']['description'],
+                        text=config['calendar']['description'],
                         fill=config['description']['color'],
                         font=config['description']['font'],
                         spacing=20)
