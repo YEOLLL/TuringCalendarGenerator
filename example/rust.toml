@@ -1,0 +1,82 @@
+[calendar]
+today = "today"
+title = "Rust"
+description = """Rust是由Mozilla主导开发的通用、编译型编程语言。设计准则为“安全、并发、实用”，
+支持函数式、並行式、过程式以及面向对象的程式設計风格，专注于强大的编译时正确性
+保证。它通过提供非常强大的编译时保证和对内存生命周期的明确控制，改进了其他系统
+语言（如 C++，D 和 Cyclone）的思想。强大的内存保证使编写正确的并发代码比其他语
+言更加容易。"""
+code = """use chrono::prelude::*;
+
+fn main() {
+    let utc: DateTime<Utc> = Utc::now();
+    println!("{}", utc.format("%Y-%m-%d").to_string());
+}"""
+language = "python"
+output = "calendar.png"
+
+# 标题
+[title]
+font = "SpaceMono-Bold.ttf"
+font_size = 120
+color = [35, 31, 32]
+pos = [150, 300]
+
+# 右上方日期
+[date]
+font = "SpaceMono-Regular.ttf"
+font_size = 80
+color = [35, 31, 32]
+pos = [1250, 500]
+
+# 右上方星期缩写
+[today]
+font = "SpaceMono-Regular.ttf"
+font_size = 60
+pos = [1500, 625]
+weekday_color = [35, 31, 32]
+weekend_color = [218, 40, 34]
+
+# 右上方中文日期
+[date_cn]
+font = "NotoSansSC-Regular.otf"
+font_size = 50
+pos = [1640, 635]
+weekday_color = [35, 31, 32]
+weekend_color = [218, 40, 34]
+
+# 代码块
+[code]
+font_size = 40
+pos = [250, 800]
+
+# 介绍语
+[description]
+font = "NotoSansSC-Regular.otf"
+font_size = 40
+pos = [150, 1750]
+color = [107, 105, 106]
+
+# 周历表格
+[table]
+pos = [[150, 2140], [1725, 2470]]
+color = [107, 106, 106]
+border = 5
+gap = 5
+weekday_color = [35, 31, 32]
+weekend_color = [218, 40, 34]
+    [table.today]
+    font = "SpaceMono-Bold.ttf"
+    font_size = 70
+    [table.date]
+    font = "SpaceMono-Regular.ttf"
+    font_size = 35
+    [table.date_cn]
+    font = "NotoSansSC-Regular.otf"
+    font_size = 40
+
+[wallpaper]
+input = "images/wallpaper1.png"
+code_zoom = 0.5
+code_pos = [350, 200]
+output = "wallpaper.png"
