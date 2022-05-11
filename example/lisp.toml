@@ -1,19 +1,19 @@
 [calendar]
 today = "today"
-title = "Rust"
-description = """Rust是由Mozilla主导开发的通用、编译型编程语言。设计准则为“安全、并发、实用”，
-支持函数式、並行式、过程式以及面向对象的程式設計风格，专注于强大的编译时正确性
-保证。它通过提供非常强大的编译时保证和对内存生命周期的明确控制，改进了其他系统
-语言（如 C++，D 和 Cyclone）的思想。强大的内存保证使编写正确的并发代码比其他语
-言更加容易。"""
-code = """use chrono::prelude::*;
-
-fn main() {
-    let utc: DateTime<Utc> = Utc::now();
-    println!("{}", utc.format("%Y-%m-%d").to_string());
-}"""
-language = "rust"
-output = "rust.png"
+title = "Lisp"
+description = """Lisp 起源于 1958 年，由 John McCarthy 在麻省理工学院发明。它具有独特和完全的括号
+前缀符号表示法，是至今第二悠久而仍广泛使用的高级编程语言。因为是早期的高级编程
+语言之一，它很快成为当时人工智能研究中最受欢迎的编程语言。"""
+code = """(multiple-value-bind
+    (second minute hour date month year day-of-week dst-p tz)
+    (get-decoded-time)
+    (format t \"~d-~2,'0d-~2','0d\"
+        year
+        month
+        date))
+"""
+language = "lisp"
+output = "lisp.png"
 
 # 标题
 [title]
@@ -48,13 +48,13 @@ weekend_color = [218, 40, 34]
 # 代码块
 [code]
 font_size = 40
-pos = [250, 800]
+pos = [250, 750]
 
 # 介绍语
 [description]
 font = "NotoSansSC-Regular.otf"
 font_size = 40
-pos = [150, 1750]
+pos = [150, 1800]
 color = [107, 105, 106]
 
 # 周历表格
@@ -79,4 +79,4 @@ weekend_color = [218, 40, 34]
 input = "images/wallpaper.png"
 code_zoom = 0.5
 code_pos = [350, 200]
-output = "wallpaper_rust.png"
+output = "wallpaper_lisp.png"

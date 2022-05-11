@@ -1,19 +1,29 @@
 [calendar]
 today = "today"
-title = "Rust"
-description = """Rust是由Mozilla主导开发的通用、编译型编程语言。设计准则为“安全、并发、实用”，
-支持函数式、並行式、过程式以及面向对象的程式設計风格，专注于强大的编译时正确性
-保证。它通过提供非常强大的编译时保证和对内存生命周期的明确控制，改进了其他系统
-语言（如 C++，D 和 Cyclone）的思想。强大的内存保证使编写正确的并发代码比其他语
-言更加容易。"""
-code = """use chrono::prelude::*;
-
-fn main() {
-    let utc: DateTime<Utc> = Utc::now();
-    println!("{}", utc.format("%Y-%m-%d").to_string());
-}"""
-language = "rust"
-output = "rust.png"
+title = "Assembly Language"
+description = """汇编语言（assembly language）是一种用于电子计算机、微处理器、微控制器，或其他可
+编程器件的低级语言，最早于 1949 年出现，在不同的设备中，汇编语言对应着不同的机器
+言指令集。一种汇编语言专用于某种计算机系统结构，而不像许多高级语言可以在不同的系
+统平台自己移植。"""
+code = """call get_date \\ lea dx, date
+mov ah, 09h \\ int 21h \\ mov ax, 4c00h
+int 21h
+date:
+db "0000-00-00", 0ah, 0dh, '$'
+get_date:
+mov al, 04h \\ int 1ah \\ mov bx, offset date
+mov al, dl \\ call put_bcd2 \\ inc bx
+mov al, dh \\ call put_bcd2 \\ inc bx
+mov al, ch \\ call put_bcd2 \\ mov al, cl
+call put_bcd2 \\ ret
+put_bcd2:
+push ax \\ shr ax, 4 ] and ax, 0fh
+add ax, '0' \\ mov [bx], al \\ inc bx
+pop ax, \\ and ax, 0fh \\ add ax, '0'
+mov [bx], al \\ inc bx \\ ret
+"""
+language = "nasm"
+output = "asm.png"
 
 # 标题
 [title]
@@ -48,13 +58,13 @@ weekend_color = [218, 40, 34]
 # 代码块
 [code]
 font_size = 40
-pos = [250, 800]
+pos = [250, 750]
 
 # 介绍语
 [description]
 font = "NotoSansSC-Regular.otf"
 font_size = 40
-pos = [150, 1750]
+pos = [150, 1800]
 color = [107, 105, 106]
 
 # 周历表格
@@ -79,4 +89,4 @@ weekend_color = [218, 40, 34]
 input = "images/wallpaper.png"
 code_zoom = 0.5
 code_pos = [350, 200]
-output = "wallpaper_rust.png"
+output = "wallpaper_asm.png"
