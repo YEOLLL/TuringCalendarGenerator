@@ -1,0 +1,72 @@
+[content]
+today = "today"  # 日期，"today" 意味着使用 datetime.today()，即当日
+title = ""  # 标题
+description = """"""  # 介绍语
+code = """"""  # 代码块
+language = "python"  # 代码块的语言
+filename = "output.png"  # 输出文件名
+
+# 标题
+[title]
+font = "SpaceMono-Bold.ttf"
+font_size = 120
+color = [35, 31, 32]
+pos = [150, 300]
+
+# 右上方日期
+[date]
+font = "SpaceMono-Regular.ttf"
+font_size = 80
+color = [35, 31, 32]
+pos = [1250, 500]
+
+# 右上方星期缩写
+[today]
+font = "SpaceMono-Regular.ttf"
+font_size = 60
+pos = [1500, 625]
+weekday_color = [35, 31, 32]
+weekend_color = [218, 40, 34]
+
+# 右上方中文日期
+[date_cn]
+font = "NotoSansSC-Regular.otf"
+font_size = 50
+pos = [1640, 635]
+weekday_color = [35, 31, 32]
+weekend_color = [218, 40, 34]
+
+# 代码块
+[code]
+font_size = 40
+pos = [250, 750]
+
+# 介绍语
+[description]
+font = "NotoSansSC-Regular.otf"
+font_size = 40
+pos = [150, 1800]
+color = [107, 105, 106]
+
+# 周历表格
+[calendar]
+pos = [[150, 2140], [1725, 2470]]
+color = [107, 106, 106]
+border = 5
+gap = 5
+weekday_color = [35, 31, 32]
+weekend_color = [218, 40, 34]
+    [calendar.today]
+    font = "SpaceMono-Bold.ttf"
+    font_size = 70
+    [calendar.date]
+    font = "SpaceMono-Regular.ttf"
+    font_size = 35
+    [calendar.date_cn]
+    font = "NotoSansSC-Regular.otf"
+    font_size = 40
+
+[wallpaper]
+code_zoom = 0.5
+code_pos = [300, 250]
+
