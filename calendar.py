@@ -100,11 +100,13 @@ def generate(config, transparent=False):
         calendar_image = Image.new('RGBA', calendar_size, (255, 255, 255, 255))
     draw = ImageDraw.Draw(calendar_image)
 
+    # 读取日期
     if config['calendar']['today'] == 'today':
         today = datetime.today()
     else:
         today = datetime.fromisoformat(config['calendar']['today'])
 
+    # 格式化信息
     # 右上角日期
     date_text = today.strftime("%Y-%m-%d")
     # 右上角星期缩写
@@ -145,7 +147,10 @@ def generate(config, transparent=False):
               fill=date_cn_color,
               font=config['date_cn']['font'])
 
-    code_image = highlight_image(config['calendar']['code'], config['code']['font_size'], config['calendar']['language'])
+    # 代码图
+    code_image = highlight_image(config['calendar']['code'],
+                                 config['code']['font_size'],
+                                 config['calendar']['language'])
     temp_image = Image.new('RGBA', calendar_size, (255, 255, 255, 0))
     temp_image.paste(code_image, config['code']['pos'])
     calendar_image.alpha_composite(temp_image)
