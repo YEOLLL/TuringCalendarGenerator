@@ -10,7 +10,7 @@ code = """"""
 # 代码语言
 language = "python"
 # 输出文件名
-output = "calendar.png"
+output = "output/calendar.png"
 
 # 标题
 [title]
@@ -73,7 +73,7 @@ weekend_color = [218, 40, 34]
     font_size = 40
 
 [wallpaper]
-input = "images/img.png"
+input = "images/wallpaper.png"
 code_zoom = 0.5
 code_pos = [50, 100]
-output = "wallpaper.png"
+output = "output/wallpaper.png"
