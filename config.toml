@@ -1,5 +1,6 @@
 [calendar]
 # 日期，"today" 意味着使用 datetime.today()，即当日
+# 也可以使用 2022-05-12
 today = "today"
 # 标题
 title = ""
@@ -9,14 +10,18 @@ description = """"""
 code = """"""
 # 代码语言
 language = "python"
-# 输出文件名
+# 输出文件
 output = "output/calendar.png"
 
 # 标题
 [title]
+# 字体文件，会从 assets 文件夹下寻找
 font = "SpaceMono-Bold.ttf"
+# 字体大小
 font_size = 120
+# 颜色
 color = [35, 31, 32]
+# 位置 [x, y]
 pos = [150, 300]
 
 # 右上方日期
@@ -31,7 +36,9 @@ pos = [1250, 500]
 font = "SpaceMono-Regular.ttf"
 font_size = 60
 pos = [1500, 625]
+# 工作日颜色
 weekday_color = [35, 31, 32]
+# 节假日颜色
 weekend_color = [218, 40, 34]
 
 # 右上方中文日期
@@ -73,7 +80,11 @@ weekend_color = [218, 40, 34]
     font_size = 40
 
 [wallpaper]
+# 待合并的壁纸
 input = "images/wallpaper.png"
-code_zoom = 0.5
-code_pos = [50, 100]
+# 日历图缩放
+zoom = 0.5
+# 日历图位置
+pos = [50, 100]
+# 输出文件
 output = "output/wallpaper.png"
