@@ -8,11 +8,13 @@
 </p>
 
 <div align="center">
-    <img src="images/asm.png" style="width: 30%"/><img src="images/rust.png" style="width: 30%"/><img src="images/lisp.png" style="width: 30%"/>
+    <img src="images/asm.png" style="width: 33%"/><img src="images/rust.png" style="width: 33%"/><img src="images/lisp.png" style="width: 33%"/>
+    <img src="images/wallpaper_rust.png" style="width: 99%"/>
 </div>
 
 # 示例
-[ASM](images/asm.png) / [Rust](images/rust.png) / [Lisp](images/lisp.png)
+日历：[ASM](images/asm.png) / [Rust](images/rust.png) / [Lisp](images/lisp.png)  
+壁纸：[ASM](images/wallpaper_asm.png) / [Rust](images/wallpaper_rust.png) / [Lisp](images/wallpaper_lisp.png)
 
 # 开始使用
 ## 安装依赖
@@ -34,16 +36,23 @@ im = Image.new(
 有考虑编写无需改库的代码，但在此之前，**这步是必要的**。   
 
 ## 编辑配置文件
-修改配置文件：[config.py](config.py)
-```python
-today = datetime.today()  # 日期，datetime 类型
-title_text = ''  # 标题
-description_text = ''''''  # 介绍语
-code = ''''''  # 代码块
-language = 'python'  # 代码块的语言，填 None 自动识别
-filename = 'output.png'  # 输出文件名
+修改配置文件：[config.toml](config.toml)
+```toml
+[calendar]
+# 日期，"today" 意味着使用 datetime.today()，即当日
+today = "today"
+# 标题
+title = ""
+# 介绍语
+description = """"""
+# 代码块
+code = """"""
+# 代码语言
+language = "python"
+# 输出文件名
+output = "calendar.png"
 ```
-也可修改字体、颜色、位置等，详细见 [config.py](config.py) 注释
+也可修改字体、颜色、位置等，详细见 [config.toml](config.toml) 注释
 
 一些已经编写好的配置文件可供参考：[example](example)
 
