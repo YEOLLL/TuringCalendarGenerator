@@ -161,7 +161,7 @@ def generate(config, transparent=False):
                         text=config['calendar']['description'],
                         fill=config['description']['color'],
                         font=config['description']['font'],
-                        spacing=20)
+                        spacing=config['description']['spacing'])
     draw_calendar_table(draw, today, config)  # 最下方周历表
 
     # calendar_image.show()
