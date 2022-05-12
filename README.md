@@ -85,7 +85,10 @@ $ python main.py calendar -c config.toml
 $ python main.py calendar -c config.toml --transparent
 ```
 ### 合并壁纸
-使用 `wallpaper` 可以将透明背景的日历图片合并至指定壁纸
+使用 `wallpaper` 可以将透明背景的日历图片合并至指定壁纸  
+
+*注意：* 这里不需要先执行上一步，会自动生成一个背景透明背景的图片并输出合并后的文件
+
 ```commandline
 $ python main.py wallpaper -c config.toml
 ```
@@ -96,9 +99,11 @@ $ python main.py calendar -c example/rust.toml
 
 日历已保存至 output/rust.png
 ```
+
 生成并合并至壁纸  
 
 *注意：* 这里不需要先执行上一步，会自动生成一个背景透明背景的图片并输出合并后的文件
+
 ```commandline
 $ python main.py wallpaper -c example/rust.toml
 
