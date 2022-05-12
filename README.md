@@ -25,6 +25,18 @@
 pip install pillow lunar-python pygments
 ```
 
+## 修改 pygments 使其支持透明通道
+修改 `<your_python_packages_path>/pygments/formatters/img.py` 中 `ImageFormatter` 的 `format` 方法，将第 576 行 `RGB` 改为 `RGBA`
+```python
+im = Image.new(
+    'RGBA',  # 修改此处
+    self._get_image_size(self.maxlinelength, self.maxlineno),
+    self.background_color
+)
+```
+试过手动替换白色像素来抠图，但字体边缘等等会出问题，又回到了这个方案。  
+感觉他们很忙，这样的小事情就不交 issues 了。
+
 ## 编辑配置文件
 修改配置文件：[config.toml](config.toml)
 ```toml
@@ -98,34 +110,6 @@ $ python main.py calendar -c example/rust.toml
 $ python main.py wallpaper -c example/rust.toml
 
 壁纸已保存至 output/wallpaper_rust.png
-```
-
-# 其他问题
-## 纯白不可用
-其实只有 `(0, 0, 0, 255)` 不可用，这是因为 [pygments](https://github.com/pygments/pygments) 库使用 `RGB` 模式而不是 `RGBA`，所以多了个替换 `(0, 0, 0, 255)` 为 `(0, 0, 0, 0)` 的步骤。   
-
-实际上略微变换一下即可。  
-
-但如果说一定要用呢，可以按照这个项目的最初方案，修改 pygments 使其支持透明通道。  
-
-修改 `<your_python_packages_path>/pygments/formatters/img.py` 中 `ImageFormatter` 的 `format` 方法，将第 576 行 `RGB` 改为 `RGBA`
-```python
-im = Image.new(
-    'RGBA',  # 修改此处
-    self._get_image_size(self.maxlinelength, self.maxlineno),
-    self.background_color
-)
-```
-并将 `code.py` 中 `highlight_image` 函数中的这一段注释
-```python
-    # 背景替换为透明
-    code_image = code_image.convert('RGBA')
-    width, height = code_image.size
-    for w in range(width):
-        for h in range(height):
-            print(code_image.getpixel((w, h)))
-            if code_image.getpixel((w, h)) == (0, 0, 0, 255):
-                code_image.putpixel((w, h), (0, 0, 0, 0))
 ```
 
 # 相关项目
