@@ -53,8 +53,8 @@ output = "output/calendar.png"
 
 [wallpaper]
 input = "images/wallpaper.png"
-code_zoom = 0.5
-code_pos = [50, 100]
+zoom = 0.5
+pos = [50, 100]
 output = "output/wallpaper.png"
 ```
 也可修改字体、颜色、位置等，详细见 [config.toml](config.toml) 注释
