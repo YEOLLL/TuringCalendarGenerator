@@ -48,14 +48,14 @@ class OneDarkStyle(Style):
 
 
 # 生成高亮代码图
-def highlight_image(code, font_size, language):
+def highlight_image(code, font_size, line_pad, language):
     if language is not None:
         lexer = get_lexer_by_name(language)
     else:
         lexer = guess_lexer(code)
 
     formatter = ImageFormatter(line_numbers=False, image_format='png',
-                               font_size=font_size, line_pad=15, style=OneDarkStyle)
+                               font_size=font_size, line_pad=line_pad, style=OneDarkStyle)
     image_bytes = BytesIO(highlight(code, lexer, formatter))
     code_image = Image.open(image_bytes)
     # code_image.save('code.png', 'png')

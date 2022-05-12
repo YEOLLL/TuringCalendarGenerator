@@ -150,6 +150,7 @@ def generate(config, transparent=False):
     # 代码图
     code_image = highlight_image(config['calendar']['code'],
                                  config['code']['font_size'],
+                                 config['code']['line_pad'],
                                  config['calendar']['language'])
     temp_image = Image.new('RGBA', calendar_size, (255, 255, 255, 0))
     temp_image.paste(code_image, config['code']['pos'])
