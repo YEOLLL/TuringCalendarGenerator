@@ -66,6 +66,7 @@ pos = [250, 750]
 [description]
 font = "NotoSansSC-Regular.otf"
 font_size = 40
+spacing = 20
 pos = [150, 1800]
 color = [107, 105, 106]
 
