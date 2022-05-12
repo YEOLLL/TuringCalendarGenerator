@@ -55,6 +55,7 @@ pos = [250, 800]
 [description]
 font = "NotoSansSC-Regular.otf"
 font_size = 40
+spacing = 20
 pos = [150, 1750]
 color = [107, 105, 106]
 
@@ -78,6 +79,6 @@ weekend_color = [218, 40, 34]
 
 [wallpaper]
 input = "images/wallpaper.png"
-code_zoom = 0.5
-code_pos = [350, 200]
+zoom = 0.5
+pos = [350, 200]
 output = "output/wallpaper_rust.png"

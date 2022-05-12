@@ -43,6 +43,7 @@ pos = [1250, 500]
 [today]
 font = "SpaceMono-Regular.ttf"
 font_size = 60
+spacing = 20
 pos = [1500, 625]
 weekday_color = [35, 31, 32]
 weekend_color = [218, 40, 34]
@@ -88,6 +89,6 @@ weekend_color = [218, 40, 34]
 
 [wallpaper]
 input = "images/wallpaper.png"
-code_zoom = 0.5
-code_pos = [350, 200]
+zoom = 0.5
+pos = [350, 200]
 output = "output/wallpaper_asm.png"
