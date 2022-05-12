@@ -59,14 +59,5 @@ def highlight_image(code, font_size, line_pad, language):
     image_bytes = BytesIO(highlight(code, lexer, formatter))
     code_image = Image.open(image_bytes)
 
-    # 背景替换为透明
-    code_image = code_image.convert('RGBA')
-    width, height = code_image.size
-    for w in range(width):
-        for h in range(height):
-            print(code_image.getpixel((w, h)))
-            if code_image.getpixel((w, h)) == (0, 0, 0, 255):
-                code_image.putpixel((w, h), (0, 0, 0, 0))
-
     # code_image.save('code.png', 'png')
     return code_image
