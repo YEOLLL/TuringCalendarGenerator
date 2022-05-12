@@ -48,6 +48,7 @@ weekend_color = [218, 40, 34]
 # 代码块
 [code]
 font_size = 40
+line_pad = 15
 pos = [250, 800]
 
 # 介绍语
